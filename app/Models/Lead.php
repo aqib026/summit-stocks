@@ -16,9 +16,10 @@ class Lead extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
-        'name',
-        'created_at',
-    ];
+    protected $guarded = [];
+    // protected $fillable = [
+    //     'name',
+    //     'created_at',
+    // ];
 
 }

@@ -23,7 +23,7 @@
 					  <tbody>
 					  <tr v-for="lead in leads">
 					  	<td>{{ lead.id }}</td>
-					  	<td>{{ lead.name }}</td>
+					  	<td>{{ lead.first_name }}</td>
 					  	<td>{{ lead.created_at }}</td>
 					  	<td>
 					  		<a :href="route('lead',{ id: lead.id })" class="btn btn-info">Edit</a> |

@@ -44,11 +44,11 @@ class leadController extends Controller
     public function store(Request $request)
     {
     $request->validate([
-            'name' => 'required|string|max:255'
+            'first_name' => 'required|string|max:255'
         ]);
 
         $user = Lead::create([
-            'name' => $request->name
+            'first_name' => $request->first_name
         ]);
          return redirect('leads');
     }
@@ -76,7 +76,7 @@ class leadController extends Controller
          return Inertia::render('Lead', ['lead' =>
            [
                 'id' => $lead->id,
-                'name' => $lead->name,
+                'first_name' => $lead->first_name,
             ]
       ]);
       

@@ -2,7 +2,7 @@
     <breeze-authenticated-layout>
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Update Lead {{lead.name}}
+                Update Lead {{lead.first_name}}
             </h2>
         </template>
     <breeze-validation-errors class="mb-4"/>
@@ -12,8 +12,8 @@
         <div class="p-6 bg-white border-b border-gray-200">
         <form @submit.prevent="submit">
         <div>
-            <breeze-label for="name" value="Name" />
-            <breeze-input id="name" type="text" class="mt-1 block w-full" v-model="form.name" required autofocus autocomplete="name" />
+            <breeze-label for="first_name" value="Name" />
+            <breeze-input id="first_name" type="text" class="mt-1 block w-full" v-model="form.first_name" required autofocus autocomplete="first_name" />
         </div>
         <div class="flex items-center justify-end mt-4">
             <breeze-button class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
@@ -53,7 +53,7 @@
     data() {
             return {
                 form: this.$inertia.form({
-                    name: this.lead.name,
+                    first_name: this.lead.first_name,
                     id:this.lead.id
                 })
             }
