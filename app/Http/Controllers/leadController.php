@@ -9,7 +9,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-use App\Models/User;
+use App\Models\Lead;
 
 class leadController extends Controller
 {
@@ -20,8 +20,9 @@ class leadController extends Controller
      */
     public function index()
     {
-        $data = User::all();
-        return Inertia::render('contacts/index', ['data' => $data]);
+        $data = Lead::all();
+        // dd($data);
+        return Inertia::render('Leads', ['leads' => $data]);
     }
 
     /**
@@ -31,7 +32,7 @@ class leadController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('CreateLead');
     }
 
     /**
@@ -42,7 +43,14 @@ class leadController extends Controller
      */
     public function store(Request $request)
     {
-        //
+    $request->validate([
+            'name' => 'required|string|max:255'
+        ]);
+
+        $user = Lead::create([
+            'name' => $request->name
+        ]);
+         return redirect('leads');
     }
 
     /**
@@ -64,7 +72,14 @@ class leadController extends Controller
      */
     public function edit($id)
     {
-        //
+         $lead = Lead::find($id);
+         return Inertia::render('Lead', ['lead' =>
+           [
+                'id' => $lead->id,
+                'name' => $lead->name,
+            ]
+      ]);
+      
     }
 
     /**
@@ -76,7 +91,11 @@ class leadController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       // dd($request->all());
+        if ($request->has('id')) {
+            Lead::find($request->input('id'))->update($request->all());
+            return redirect('leads');
+        }
     }
 
     /**
@@ -87,6 +106,8 @@ class leadController extends Controller
      */
     public function destroy($id)
     {
-        //
+          $lead = Lead::find($id);
+          $lead->delete();
+          return redirect('leads');
     }
 }

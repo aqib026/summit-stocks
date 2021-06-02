@@ -10,7 +10,7 @@
                             <div class="flex-shrink-0 flex items-center">
                                 <inertia-link :href="route('dashboard')">
                                    <!--  <breeze-application-logo class="block h-9 w-auto" /> -->
-                                   <img alt="Porto" width="237" height="55" src="theme/img/cropped-logo@2x.png">
+                                   <img alt="Porto" width="237" height="55" src="/theme/img/cropped-logo@2x.png">
                                 </inertia-link>
                             </div>
 
@@ -19,7 +19,7 @@
                                 <breeze-nav-link :href="route('dashboard')" :active="route().current('dashboard')">
                                     Dashboard
                                 </breeze-nav-link> 
-                                <breeze-nav-link :href="route('leads')" :active="route().current('leads')">
+                                <breeze-nav-link :href="route('leads')" :active="route().current('leads')" v-if=" $page.props.auth.user.type =='admin' ">
                                     Leads
                                 </breeze-nav-link>
                             </div>

@@ -16,8 +16,30 @@ Route::get('/register', [RegisteredUserController::class, 'create'])
                 ->name('register');
 
 Route::get('/leads', [leadController::class, 'index'])
-                ->middleware('guest')
+                ->middleware(['auth', 'verified'])
                 ->name('leads');
+
+Route::get('/Createlead', [leadController::class, 'create'])
+                ->middleware(['auth', 'verified'])
+                ->name('Createlead');
+
+Route::post('/Createlead', [leadController::class, 'store'])
+                ->middleware(['auth', 'verified'])
+                ->name('Createlead');
+
+Route::get('/lead/{id}', [leadController::class, 'edit'])
+                ->middleware(['auth', 'verified'])
+                ->name('lead');
+
+Route::put('/lead/{id}', [leadController::class, 'update'])
+                ->middleware(['auth', 'verified'])
+                ->name('lead');
+
+Route::delete('/lead/{id}', [leadController::class, 'destroy'])
+                ->middleware(['auth', 'verified'])
+                ->name('deletelead');
+
+
 
 Route::post('/register', [RegisteredUserController::class, 'store'])
                 ->middleware('guest');
