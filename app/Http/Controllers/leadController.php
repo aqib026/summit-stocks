@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Models\Lead;
+use App\Models\User;
 
 class leadController extends Controller
 {
@@ -18,11 +19,18 @@ class leadController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data = Lead::all();
+        // $data = Lead::orderBy('id', 'desc')
+        // $data = Lead::when($request->term,function($query,$term){
+        //     $query->where('first_name','LIKE','%'.$term.'%');
+        //     })->paginate(10);
         // dd($data);
-        return Inertia::render('Leads', ['leads' => $data]);
+        return Inertia::render('Leads1', [
+            'leads' =>User::when($request->term,function($query,$term){
+            $query->where('first_name','LIKE','%'.$term.'%');
+            })->where('type','lead')->paginate(10)
+         ]);
     }
 
     /**
@@ -72,13 +80,42 @@ class leadController extends Controller
      */
     public function edit($id)
     {
-         $lead = Lead::find($id);
-         return Inertia::render('Lead', ['lead' =>
-           [
-                'id' => $lead->id,
-                'first_name' => $lead->first_name,
-            ]
-      ]);
+         $lead = User::find($id);
+         return Inertia::render('Lead', ['lead' => $lead
+      ]); 
+      //  return Inertia::render('Lead', ['lead' =>
+      //      [
+      //           'id' => $lead->id,
+      //           'first_name' => $lead->first_name,
+      //       ]
+      // ]);
+      
+    }  
+      public function Search(Request $request)
+    {
+       
+
+        $key = $request->search;
+        if(!empty($key)){
+
+        $leads = Lead::where('first_name','LIKE',"%{$key}%")
+                                    ->orWhere('last_name','LIKE',"%{$key}%")
+                                    ->orderBy('id', 'desc')
+                                    ->paginate(10);
+                                }else{
+
+         $leads = Lead::orderBy('id', 'desc')
+                        ->paginate(10);
+                                }
+
+        // dd($leads);
+        return Inertia::render('Leads', ['leads' => $leads]);
+      //    return Inertia::render('Lead', ['lead' =>
+      //      [
+      //           'id' => $lead->id,
+      //           'first_name' => $lead->first_name,
+      //       ]
+      // ]);
       
     }
 
@@ -93,7 +130,7 @@ class leadController extends Controller
     {
        // dd($request->all());
         if ($request->has('id')) {
-            Lead::find($request->input('id'))->update($request->all());
+            User::find($request->input('id'))->update($request->all());
             return redirect('leads');
         }
     }
@@ -106,7 +143,7 @@ class leadController extends Controller
      */
     public function destroy($id)
     {
-          $lead = Lead::find($id);
+          $lead = User::find($id);
           $lead->delete();
           return redirect('leads');
     }

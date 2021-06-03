@@ -15,9 +15,26 @@ Route::get('/register', [RegisteredUserController::class, 'create'])
                 ->middleware('guest')
                 ->name('register');
 
+Route::get('/register_customer', [RegisteredUserController::class, 'create_leads'])
+                // ->middleware('guest')
+                ->name('register_customer');
+
+Route::get('/thanks/{id}', [RegisteredUserController::class, 'thanks'])
+                // ->middleware('guest')
+                ->name('thanks');
+                
+Route::post('/update_experience', [RegisteredUserController::class, 'update_experience'])
+                // ->middleware('guest')
+                ->name('update_experience');
+
+
 Route::get('/leads', [leadController::class, 'index'])
                 ->middleware(['auth', 'verified'])
                 ->name('leads');
+
+// Route::post('/leads', [leadController::class, 'Search'])
+//                 ->middleware(['auth', 'verified'])
+//                 ->name('leads');
 
 Route::get('/Createlead', [leadController::class, 'create'])
                 ->middleware(['auth', 'verified'])
@@ -38,11 +55,17 @@ Route::put('/lead/{id}', [leadController::class, 'update'])
 Route::delete('/lead/{id}', [leadController::class, 'destroy'])
                 ->middleware(['auth', 'verified'])
                 ->name('deletelead');
+Route::get('/search_lead/{value}', [leadController::class, 'Search'])
+                ->middleware(['auth', 'verified'])
+                ->name('search_lead');
 
 
 
 Route::post('/register', [RegisteredUserController::class, 'store'])
                 ->middleware('guest');
+
+Route::post('/leads/save', [RegisteredUserController::class, 'save_lead']);
+                // ->middleware('guest');
 
 Route::get('/login', [AuthenticatedSessionController::class, 'create'])
                 ->middleware('guest')
