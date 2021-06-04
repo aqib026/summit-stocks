@@ -44,12 +44,21 @@
         <!-- Head Libs -->
         <script src="{{ asset('theme/vendor/modernizr/modernizr.min.js') }}"></script>
 
+        <?php if($_SERVER['HTTP_HOST'] == 'localhost' || $_SERVER['HTTP_HOST'] == '127.0.0.1:8000'): ?>
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
         <!-- Scripts -->
         @routes
         <script src="{{ mix('js/app.js') }}" defer></script>
+        <?php else: ?>
+        <!-- Styles -->
+        <link rel="stylesheet" href="{{ mix('public/css/app.css') }}">
+
+        <!-- Scripts -->
+        @routes
+        <script src="{{ mix('public/js/app.js') }}" defer></script>
+        <?php endif; ?>
     </head>
     <body class="font-sans antialiased" data-plugin-page-transition>
         <div class="body">
