@@ -1,24 +1,23 @@
 <template>
-    <Test>
-       <!--  <template #header>
-            
-        </template> -->
-      <div>
-
+    <MainLayout>
+<div>
  <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Leads
-            </h2>
+  Leads
+</h2>
+  <div class="col-md-4" style="float: right;margin-bottom: 30px ">
+  <input type="text" class="form-control" placeholder="Search">
+  </div>
           <table class="table">
 
 					  <thead>
 					    <tr>
 					      <th scope="col">#</th>
 					      <th scope="col">Name</th>
-                          <th scope="col">City</th>
-                          <th scope="col">State</th>
-                          <th scope="col">Country</th>
-                          <th scope="col">Postal Code</th>
-                          <th scope="col">Phone No</th>
+                    <th scope="col">City</th>
+                    <th scope="col">State</th>
+                    <th scope="col">Country</th>
+                    <th scope="col">Postal Code</th>
+                    <th scope="col">Phone No</th>
 					     <!--  <th scope="col">Created At</th> -->
 					      <th scope="col">Actions</th>
 					    </tr>
@@ -37,20 +36,17 @@
 					  		<a :href="route('lead',{ id: lead.id })" class="btn btn-info">Edit</a> |
 					  		<a href="" class="btn btn-danger" @click="destroy(lead.id)">Delete</a>
 					  	</td>
-					  	
 					  </tr>
 					  </tbody>
 					</table>
-                    <pagination class="mt-6" :links="leads.links" />
-
-              
+        <pagination class="mt-6" :links="leads.links" />
         </div>
-    </Test>
+    </MainLayout>
 </template>
 
 <script>
+    import MainLayout from '@/Layouts/Main'
     import BreezeAuthenticatedLayout from '@/Layouts/Authenticated'
-    import Test from './test'
     import Pagination from '@/Components/Pagination'
 
     export default {
@@ -60,18 +56,29 @@
             term: '',
             form: this.$inertia.form({
                     search: ''
-                })
+                }),
+            params:{
+              search:null,
+            },
         }
     },
-        components: {
+  components: {
             BreezeAuthenticatedLayout,
-            Test,
+            MainLayout,
             Pagination,
         },
 
-         props: {
+    props: {
          leads: Object,
     },
+    watch:{
+      params:{
+        handler(){
+          this.$inertia.get(this.route('leads'),this.params,{replace:true,preserveState:true});
+        }
+      }
+    },
+
     methods:{
 
 destroy(id) {
@@ -80,14 +87,14 @@ destroy(id) {
     this.$inertia.delete(this.route('deletelead', id))
   }
 },
-searchUnit:function(){
-     this.$inertia.replace(this.route('leads',{term:this.term}))
-      // if(this.form.search != ''){
-      //   this.form.post(this.route('leads'));
-      // }
+// searchUnit:function(){
+//      this.$inertia.replace(this.route('leads',{term:this.term}))
+//       // if(this.form.search != ''){
+//       //   this.form.post(this.route('leads'));
+//       // }
 
         
-        },
+//         },
     }
     }
 </script>

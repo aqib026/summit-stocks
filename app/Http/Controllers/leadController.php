@@ -29,7 +29,7 @@ class leadController extends Controller
         return Inertia::render('Leads1', [
             'leads' =>User::when($request->term,function($query,$term){
             $query->where('first_name','LIKE','%'.$term.'%');
-            })->where('type','lead')->paginate(10)
+            })->where('type','lead')->paginate(1)
          ]);
     }
 
@@ -81,7 +81,8 @@ class leadController extends Controller
     public function edit($id)
     {
          $lead = User::find($id);
-         return Inertia::render('Lead', ['lead' => $lead
+         // dd($lead);
+         return Inertia::render('Lead1', ['lead' => $lead
       ]); 
       //  return Inertia::render('Lead', ['lead' =>
       //      [

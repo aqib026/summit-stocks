@@ -27,6 +27,12 @@
         <link rel="stylesheet" href="{{ asset('theme/css/theme-elements.css') }}">
         <link rel="stylesheet" href="{{ asset('theme/css/theme-blog.css') }}">
         <link rel="stylesheet" href="{{ asset('theme/css/theme-shop.css') }}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+      integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css"
+      href="{{ asset('assets/lib/font-awesome/css/font-awesome.min.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('/assets/css/font-face.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('theme/css/style.css') }}" />
         <link rel="icon" href="{{ asset('theme/img/cropped-cropped-logo@2x-32x32.png') }}" sizes="32x32" />
         <link rel="icon" href="{{ asset('theme/img/cropped-cropped-logo@2x-192x192.png') }}" sizes="192x192" />
           <!-- Skin CSS -->
