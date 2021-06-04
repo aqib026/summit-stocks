@@ -465,7 +465,7 @@ date_default_timezone_set('America/New_York');
                     <select name="country" id="country" class="form-select"  required>
                       <option selected>Country</option>
                       <option value="USA">United States Of America</option>
-                      <option value="Canada">Canada</option>
+                      <option value="CA">Canada</option>
                     </select>
                   </div>
                 </div>

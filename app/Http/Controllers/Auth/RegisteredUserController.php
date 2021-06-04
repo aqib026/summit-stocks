@@ -33,6 +33,75 @@ class RegisteredUserController extends Controller
     {
         // return Inertia::render('Auth/Register');
         // dd($request->all());
+
+   $xml ="<?xml version=”1.0” encoding=”UTF-8”?> 
+            <UAPIRequest> 
+             <transaction> 
+            <process>online</process> 
+            <type>authorization</type> 
+             </transaction> 
+             <requestData> 
+            <orderId>1</orderId> 
+            <orderAmount>".$request->subscription."</orderAmount> 
+            <billing> 
+            <billingFirstName>".$request->first_name."</billingFirstName> 
+            <billingLastName>".$request->last_name."</billingLastName> 
+            <billingAddressLine1>".$request->address1."</billingAddressLine1> 
+            <billingCity>".$request->city."</billingCity> 
+            <billingState>". $request->state."</billingState> 
+            <billingZipCode>".$request->postal_code."</billingZipCode> 
+            <billingCountry>".$request->country."</billingCountry> 
+            <billingEmail>".$request->email_address."</billingEmail> 
+            <billingPhone>".$request->phone_no."</billingPhone> 
+            </billing> 
+            <shipping> 
+            <shippingFirstName>".$request->first_name."</shippingFirstName> 
+            <shippingLastName>".$request->last_name."</shippingLastName> 
+            <shippingAddressLine1>".$request->address1."</shippingAddressLine1> 
+            <shippingAddressLine2>".$request->address2."</shippingAddressLine2> 
+            <shippingCity>".$request->city."</shippingCity> 
+            <shippingState>".$request->state."</shippingState> 
+            <shippingZipCode>".$request->postal_code."</shippingZipCode> 
+            <shippingCountry>".$request->country."</shippingCountry> 
+            <shippingEmail>".$request->email_address."</shippingEmail> 
+            <shippingPhone>".$request->phone_no."</shippingPhone> 
+            </shipping> 
+            <card> 
+            <cardNumber>".$request->ccnumber."</cardNumber> 
+            <cardExpiration>".$request->exp_month."</cardExpiration> 
+            <cardCVV>".$request->cvv."</cardCVV> 
+            </card> 
+            <currencyCode>840</currencyCode> 
+             </requestData> 
+            </UAPIRequest>";
+
+// echo $xml;exit();
+
+                $xml = $xml; 
+                $curl = curl_init(); 
+                curl_setopt_array($curl, array( 
+                 CURLOPT_URL => "https://apidev.mojopay.com/universalapi", 
+                 CURLOPT_RETURNTRANSFER => true, 
+                 CURLOPT_ENCODING => "", 
+                 CURLOPT_MAXREDIRS => 10, 
+                 CURLOPT_TIMEOUT => 0, 
+                 CURLOPT_FOLLOWLOCATION => true, 
+                 CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1, 
+                 CURLOPT_CUSTOMREQUEST => "POST", 
+                 CURLOPT_POSTFIELDS => $xml, 
+                 CURLOPT_HTTPHEADER => array( 
+                 "authorized: hfwwMUQiHsYX6kf828M2t8vF7AfocrAYlnbKUMaJseol8HFt", 
+                 "Content-Type: application/xml" 
+                 ), 
+                )); 
+                $response = curl_exec($curl); 
+                curl_close($curl); 
+    $xml = simplexml_load_string($response); 
+
+    print_r($xml);
+
+                exit();
+
        $request->validate([
             'subscription' => 'required|max:255',
             'first_name' => 'required|max:255',
@@ -70,6 +139,7 @@ class RegisteredUserController extends Controller
             'exp_month' => $request->exp_month,
             'exp_year' => $request->exp_year,
             'cvv' => $request->cvv,
+            'subscription' => $request->subscription,
             'type' => 'lead',
             // 'password' => Hash::make($request->password),
         ]);
