@@ -12,9 +12,9 @@ let path = require('path');
  |
  */
 
-mix.js('resources/js/app.js', '${path.sep}/js')
+mix.js('resources/js/app.js', 'public/js')
     .vue()
-    .postCss('resources/css/app.css', '${path.sep}/css', [
+    .postCss('resources/css/app.css', 'public/css', [
         require('postcss-import'),
         require('tailwindcss'),
         require('autoprefixer'),

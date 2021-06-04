@@ -1,279 +1,33 @@
 <template>
-  <!--   <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
-        <div v-if="canLogin" class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-            <inertia-link v-if="$page.props.auth.user" href="/dashboard" class="text-sm text-gray-700 underline">
-                Dashboard
-            </inertia-link>
 
-            <template v-else>
-                <inertia-link :href="route('login')" class="text-sm text-gray-700 underline">
-                    Log in
-                </inertia-link>
 
-                <inertia-link v-if="canRegister" :href="route('register')" class="ml-4 text-sm text-gray-700 underline">
-                    Register
-                </inertia-link>
-            </template>
-        </div>
 
-        
-    </div> -->
-<header id="header" data-plugin-options="{'stickyEnabled': true, 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': true, 'stickyStartAt': 173, 'stickySetTop': '-173px', 'stickyChangeLogo': false}">
-                <div class="header-body border-0">
 
-                    <div class="header-container container container-lg-custom" style="min-height: 122px;">
-                        <div class="header-row py-3">
-                            <div class="header-column justify-content-start">
-                                <div class="header-row">
-                                    <h1 class="header-logo">
-                                        <a href="index.html">
-                                            <img alt="Porto" width="237" height="55" src="theme/img/cropped-logo@2x.png">
-                                           <!--  <span class="hide-text">Porto - Demo Blog 1</span> -->
-                                        </a>
-                                    </h1>
-                                </div>
-                            </div>
-                            <div class="header-column justify-content-end w-75">
-                                <div class="header-row">
-                                    <a href="http://themeforest.net/item/porto-responsive-html5-template/4106987" target="_blank">
-                                        <img alt="Porto" class="img-fluid pl-3" src="theme/img/blog/blog-ad-2.jpg" />
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="header-nav-bar header-nav-bar-top-border bg-light">
-                        <div class="header-container container container-lg-custom">
-                            <div class="header-row">
-                                <div class="header-column">
-                                    <div class="header-row justify-content-end justify-content-lg-start">
-                                        <div class="header-nav p-0">
-                                            <div class="header-nav header-nav-links header-nav-spaced header-nav-first-item-no-padding justify-content-start">
-                                                <div class="header-nav-main header-nav-main-square header-nav-main-font-lg-upper header-nav-main-dropdown-no-borders header-nav-main-effect-2 header-nav-main-sub-effect-1">
-                                                    <nav class="collapse">
-                                                        <ul class="nav nav-pills flex-column flex-lg-row" id="mainNav">
-                                                            <li class="dropdown ml-0">
-                                                                <a class="dropdown-item dropdown-toggle" href="index.html">
-                                                                    Latest Stock Picks
-                                                                </a>   
-                                                            </li>  
-                                                             <li class="dropdown ml-0">
-                                                                <a class="dropdown-item dropdown-toggle" href="index.html">
-                                                                    Research/Reports
-                                                                </a>   
-                                                            </li>   
-                                                            <li class="dropdown ml-0">
-                                                                <a class="dropdown-item dropdown-toggle" href="index.html">
-                                                                    Contact Us
-                                                                </a>   
-                                                            </li>   
-                                                            <li class="dropdown ml-0">
-                                                                <a class="dropdown-item dropdown-toggle" href="index.html">
-                                                                    About
-                                                                </a>   
-                                                            </li> 
-
-<div v-if="canLogin" class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-<inertia-link v-if="$page.props.auth.user" href="/dashboard" class="text-sm text-gray-700 underline">
-Dashboard
-</inertia-link>
-
-<template v-else>
-<inertia-link :href="route('login')" class="text-sm text-gray-700 underline">
-Log in
-</inertia-link>
-
-<inertia-link v-if="canRegister" :href="route('register')" class="ml-4 text-sm text-gray-700 underline">
-Register
-</inertia-link>
-</template>
-</div> 
-<!-- <li class="dropdown ml-0" v-if="canLogin">
-<inertia-link v-if="$page.props.auth.user" href="/dashboard" class="text-sm text-gray-700 underline">
-Dashboard
-</inertia-link>   
-</li> 
-<li class="dropdown ml-0" v-if="!canLogin">
-<inertia-link :href="route('login')" class="dropdown ml-0">
-Log in
-</inertia-link>  
-</li>   
-<li class="dropdown ml-0" v-if="!canLogin">
-<inertia-link v-if="canRegister" :href="route('register')" class="dropdown ml-0">
-Register
-</inertia-link>  
-</li>  -->
-
-</ul>
-                                                    </nav>
-                                                </div>
-                                                <button class="btn header-btn-collapse-nav" data-toggle="collapse" data-target=".header-nav-main nav">
-                                                    <i class="fas fa-bars"></i>
-                                                </button>
-                                            </div>
-                                            <div class="header-nav-features">
-                                                <div class="header-nav-features-search-reveal-container">
-                                                    <div class="header-nav-feature header-nav-features-search header-nav-features-search-reveal d-inline-flex">
-                                                        <a href="#" class="header-nav-features-search-show-icon d-inline-flex text-decoration-none"><i class="fas fa-search header-nav-top-icon"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="header-nav-features header-nav-features-no-border p-static">
-                    <div class="header-nav-feature header-nav-features-search header-nav-features-search-reveal header-nav-features-search-reveal-big-search header-nav-features-search-reveal-big-search-full">
-                        <div class="container">
-                            <div class="row h-100 d-flex">
-                                <div class="col h-100 d-flex">
-                                    <form role="search" class="d-flex h-100 w-100" action="page-search-results.html" method="get">
-                                        <div class="big-search-header input-group">
-                                            <input class="form-control text-1" id="headerSearch" name="q" type="search" value="" placeholder="Type and hit enter...">
-                                            <a href="#" class="header-nav-features-search-hide-icon"><i class="fas fa-times header-nav-top-icon"></i></a>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </header>
-
-            
     <div role="main" class="main">
      <section class="section border-0 m-0 pb-3">
                     <div class="container container-lg-custom">
                         <div class="row pb-1">
 
-                            <div class="col-sm-6 col-lg-4 mb-4 pb-2">
+                            <div class="col-sm-6 col-lg-4 mb-4 pb-2" v-for="gridBlog in gridBlogs" :key="gridBlog.id">
                                 <a href="blog-post.html">
                                     <article>
                                         <div class="thumb-info thumb-info-no-borders thumb-info-bottom-info thumb-info-bottom-info-dark thumb-info-bottom-info-show-more thumb-info-no-zoom border-radius-0">
                                             <div class="thumb-info-wrapper thumb-info-wrapper-opacity-6">
-                                                <img src="theme/img/blog/default/blog-46.jpg" class="img-fluid" alt="How To Take Better Concert Pictures in 30 Seconds">
+                                                <img  :src="gridBlog.post_image" class="img-fluid" :alt="gridBlog.post_title" style="height:300px;">
                                                 <div class="thumb-info-title bg-transparent p-4">
-                                                    <div class="thumb-info-type bg-color-primary px-2 mb-1">Photography</div>
+                                                    <div class="thumb-info-type bg-color-primary px-2 mb-1">{{gridBlog.post_category}}</div>
                                                     <div class="thumb-info-inner mt-1">
-                                                        <h2 class="text-color-light line-height-2 text-4 font-weight-bold mb-0">How To Take Better Concert Pictures in 30 Seconds</h2>
+                                                        <h2 class="text-color-light line-height-2 text-4 font-weight-bold mb-0">{{gridBlog.post_title}}</h2>
                                                     </div>
                                                     <div class="thumb-info-show-more-content">
-                                                        <p class="mb-0 text-1 line-height-9 mb-1 mt-2 text-light opacity-5">Euismod atras vulputate iltricies etri elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+                                                        <p class="mb-0 text-1 line-height-9 mb-1 mt-2 text-light opacity-5">{{gridBlog.post_content}}</p>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </article>
                                 </a>
-                            </div>
-
-                            <div class="col-sm-6 col-lg-4 mb-4 pb-2">
-                                <a href="blog-post.html">
-                                    <article>
-                                        <div class="thumb-info thumb-info-no-borders thumb-info-bottom-info thumb-info-bottom-info-dark thumb-info-bottom-info-show-more thumb-info-no-zoom border-radius-0">
-                                            <div class="thumb-info-wrapper thumb-info-wrapper-opacity-6">
-                                                <img src="theme/img/blog/default/blog-47.jpg" class="img-fluid" alt="Gadgets That Make Your Smartphone Even Smarter">
-                                                <div class="thumb-info-title bg-transparent p-4">
-                                                    <div class="thumb-info-type bg-color-primary px-2 mb-1">Gadgets</div>
-                                                    <div class="thumb-info-inner mt-1">
-                                                        <h2 class="text-color-light line-height-2 text-4 font-weight-bold mb-0">Gadgets That Make Your Smartphone Even Smarter</h2>
-                                                    </div>
-                                                    <div class="thumb-info-show-more-content">
-                                                        <p class="mb-0 text-1 line-height-9 mb-1 mt-2 text-light opacity-5">Euismod atras vulputate iltricies etri elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </article>
-                                </a>
-                            </div>
-
-                            <div class="col-sm-6 col-lg-4 mb-4 pb-2">
-                                <a href="blog-post.html">
-                                    <article>
-                                        <div class="thumb-info thumb-info-no-borders thumb-info-bottom-info thumb-info-bottom-info-dark thumb-info-bottom-info-show-more thumb-info-no-zoom border-radius-0">
-                                            <div class="thumb-info-wrapper thumb-info-wrapper-opacity-6">
-                                                <img src="theme/img/blog/default/blog-48.jpg" class="img-fluid" alt="20 Top-Rated Tourist Attractions in Manhattan">
-                                                <div class="thumb-info-title bg-transparent p-4">
-                                                    <div class="thumb-info-type bg-color-primary px-2 mb-1">Travel</div>
-                                                    <div class="thumb-info-inner mt-1">
-                                                        <h2 class="text-color-light line-height-2 text-4 font-weight-bold mb-0">20 Top-Rated Tourist Attractions in Manhattan</h2>
-                                                    </div>
-                                                    <div class="thumb-info-show-more-content">
-                                                        <p class="mb-0 text-1 line-height-9 mb-1 mt-2 text-light opacity-5">Euismod atras vulputate iltricies etri elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </article>
-                                </a>
-                            </div>
-
-                            <div class="col-sm-6 col-lg-4 mb-4 pb-2">
-                                <a href="blog-post.html">
-                                    <article>
-                                        <div class="thumb-info thumb-info-no-borders thumb-info-bottom-info thumb-info-bottom-info-dark thumb-info-bottom-info-show-more thumb-info-no-zoom border-radius-0">
-                                            <div class="thumb-info-wrapper thumb-info-wrapper-opacity-6">
-                                                <img src="theme/img/blog/default/blog-49.jpg" class="img-fluid" alt="The Best Way to Ride a Motorcycle">
-                                                <div class="thumb-info-title bg-transparent p-4">
-                                                    <div class="thumb-info-type bg-color-primary px-2 mb-1">Lifestyle</div>
-                                                    <div class="thumb-info-inner mt-1">
-                                                        <h2 class="text-color-light line-height-2 text-4 font-weight-bold mb-0">The Best Way to Ride a Motorcycle</h2>
-                                                    </div>
-                                                    <div class="thumb-info-show-more-content">
-                                                        <p class="mb-0 text-1 line-height-9 mb-1 mt-2 text-light opacity-5">Euismod atras vulputate iltricies etri elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </article>
-                                </a>
-                            </div>
-
-                            <div class="col-sm-6 col-lg-4 mb-4 pb-2">
-                                <a href="blog-post.html">
-                                    <article>
-                                        <div class="thumb-info thumb-info-no-borders thumb-info-bottom-info thumb-info-bottom-info-dark thumb-info-bottom-info-show-more thumb-info-no-zoom border-radius-0">
-                                            <div class="thumb-info-wrapper thumb-info-wrapper-opacity-6">
-                                                <img src="theme/img/blog/default/blog-50.jpg" class="img-fluid" alt="5 Fun Things to Do at the Beach">
-                                                <div class="thumb-info-title bg-transparent p-4">
-                                                    <div class="thumb-info-type bg-color-primary px-2 mb-1">Travel</div>
-                                                    <div class="thumb-info-inner mt-1">
-                                                        <h2 class="text-color-light line-height-2 text-4 font-weight-bold mb-0">5 Fun Things to Do at the Beach</h2>
-                                                    </div>
-                                                    <div class="thumb-info-show-more-content">
-                                                        <p class="mb-0 text-1 line-height-9 mb-1 mt-2 text-light opacity-5">Euismod atras vulputate iltricies etri elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </article>
-                                </a>
-                            </div>
-
-                            <div class="col-sm-6 col-lg-4 mb-4 pb-2">
-                                <a href="blog-post.html">
-                                    <article>
-                                        <div class="thumb-info thumb-info-no-borders thumb-info-bottom-info thumb-info-bottom-info-dark thumb-info-bottom-info-show-more thumb-info-no-zoom border-radius-0">
-                                            <div class="thumb-info-wrapper thumb-info-wrapper-opacity-6">
-                                                <img src="theme/img/blog/default/blog-51.jpg" class="img-fluid" alt="Amazingly Fresh Fruit And Herb Drinks For Summer">
-                                                <div class="thumb-info-title bg-transparent p-4">
-                                                    <div class="thumb-info-type bg-color-primary px-2 mb-1">Recipes</div>
-                                                    <div class="thumb-info-inner mt-1">
-                                                        <h2 class="text-color-light line-height-2 text-4 font-weight-bold mb-0">Amazingly Fresh Fruit And Herb Drinks For Summer</h2>
-                                                    </div>
-                                                    <div class="thumb-info-show-more-content">
-                                                        <p class="mb-0 text-1 line-height-9 mb-1 mt-2 text-light opacity-5">Euismod atras vulputate iltricies etri elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </article>
-                                </a>
-                            </div>
+                            </div>                            
 
                         </div>
                     </div>
@@ -1122,14 +876,36 @@ Register
 </style>
 
 <script>
-    export default {
-        props: {
+export default {
+  data() {
+    return {
+      gridBlogs: [],
+    };
+  },
+  props: {
             auth: Object,
             canLogin: Boolean,
             canRegister: Boolean,
             errors: Object,
             laravelVersion: String,
             phpVersion: String,
-        }
+        },
+  methods: {
+    getGridBlogs() {
+      axios
+        .get("/api/getGridBlogs")
+        .then(({ data }) => {
+            this.gridBlogs = data.data;
+                
+            }
+        );
     }
+  },
+  mounted() {},
+  created() {
+    //this.$Progress.start();
+    this.getGridBlogs();
+    //this.$Progress.finish();
+  }
+};
 </script>
