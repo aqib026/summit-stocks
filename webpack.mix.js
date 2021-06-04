@@ -1,4 +1,5 @@
 const mix = require('laravel-mix');
+let path = require('path');
 
 /*
  |--------------------------------------------------------------------------
@@ -11,9 +12,9 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'js')
+mix.js('resources/js/app.js', '${path.sep}/js')
     .vue()
-    .postCss('resources/css/app.css', 'css', [
+    .postCss('resources/css/app.css', '${path.sep}/css', [
         require('postcss-import'),
         require('tailwindcss'),
         require('autoprefixer'),
