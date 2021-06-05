@@ -5,13 +5,17 @@
         <li v-for="popularBlog in popularBlogs" :key="popularBlog.id">
             <div class="post-image">
                 <div class="img-thumbnail img-thumbnail-no-borders d-block">
-                    <a href="blog-post.html">
+                    <inertia-link  :href="gridBlog.post_url">
                         <img :src="popularBlog.post_image" class="border-radius-0" style="height:50px !important;width:50px !important;" width="50" height="50" :alt="popularBlog.post_title">
-                    </a>
+                    </inertia-link>
                 </div>
             </div>
             <div class="post-info">
-                <h4 class="font-weight-normal text-3 line-height-4 mb-0"><a href="blog-post.html" class="text-dark">{{ popularBlog.post_title }}</a></h4>
+                <h4 class="font-weight-normal text-3 line-height-4 mb-0">
+                  <inertia-link  :href="gridBlog.post_url" class="text-dark">
+                  <a href="blog-post.html" >{{ popularBlog.post_title }}</a>
+                  </inertia-link>
+                  </h4>
                 <div class="post-meta">
                     {{popularBlog.pubDate}}
                 </div>

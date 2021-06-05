@@ -27,7 +27,6 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('{post_url}', 'PostController@index');
 
 
 Route::get('/dashboard', function () {
@@ -39,3 +38,5 @@ Route::get('/test', function () {
 })->middleware(['auth', 'verified'])->name('test');
 
 require __DIR__.'/auth.php';
+
+Route::get('{post_url}', 'PostController@index');
