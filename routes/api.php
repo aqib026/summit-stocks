@@ -19,3 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/getGridBlogs', 'BlogController@gridBlogs')->name('getGridBlogs');
+
+Route::get('/recentBlogs', 'BlogController@recentBlogs')->name('recentBlogs');
+
+Route::get('/popularBlogs', 'BlogController@popularBlogs')->name('popularBlogs');
