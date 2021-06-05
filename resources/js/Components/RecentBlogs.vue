@@ -5,13 +5,13 @@
         <li v-for="recentBlog in recentBlogs" :key="recentBlog.id">
             <div class="post-image">
                 <div class="img-thumbnail img-thumbnail-no-borders d-block">
-                    <a href="blog-post.html">
+                    <inertia-link :href="recentBlog.post_url">
                         <img :src="recentBlog.post_image" class="border-radius-0" style="height:50px !important;width:50px !important;" width="50" height="50" :alt="recentBlog.post_title">
-                    </a>
+                    </inertia-link>
                 </div>
             </div>
             <div class="post-info">
-                <h4 class="font-weight-normal text-3 line-height-4 mb-0"><a href="blog-post.html" class="text-dark">{{ recentBlog.post_title }}</a></h4>
+                <h4 class="font-weight-normal text-3 line-height-4 mb-0"><inertia-link :href="recentBlog.post_url" class="text-dark">{{ recentBlog.post_title }}</inertia-link></h4>
                 <div class="post-meta">
                     {{recentBlog.pubDate}}
                 </div>

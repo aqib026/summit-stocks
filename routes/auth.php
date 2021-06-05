@@ -15,9 +15,9 @@ Route::get('/register', [RegisteredUserController::class, 'create'])
                 ->middleware('guest')
                 ->name('register');
 
-Route::get('/register_customer', [RegisteredUserController::class, 'create_leads'])
+Route::get('/invest-better-with-summit-stocks', [RegisteredUserController::class, 'create_leads'])
                 // ->middleware('guest')
-                ->name('register_customer');
+                ->name('invest-better-with-summit-stocks');
 
 Route::get('/thanks/{id}', [RegisteredUserController::class, 'thanks'])
                 // ->middleware('guest')

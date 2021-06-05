@@ -5,7 +5,7 @@
 
                     <!-- header header header header header -->
                     <div class="header-top header-top-default border-bottom-0 bg-color-primary">
-							<iframe id='st_f145943643b84038989d4c33cb78f373' frameBorder='0' scrolling='no' width='100%' height='56px;' src='https://api.stockdio.com/visualization/financial/charts/v1/Ticker?app-key=97FB1781D95247F490A05175F2AC2546&stockExchange=USA&symbols=AAPL;MSFT&palette=Financial-Light&layoutType=8&onload=st_f145943643b84038989d4c33cb78f373'></iframe>
+							
 					</div>
 
                     <!-- header header header header header -->
@@ -14,16 +14,16 @@
                             <div class="header-column justify-content-start">
                                 <div class="header-row">
                                     <h1 class="header-logo">
-                                        <a href="index.html">
+                                        <inertia-link href="/">
                                             <img alt="Porto" width="237" height="55" src="theme/img/cropped-logo@2x.png">
                                            <!--  <span class="hide-text">Porto - Demo Blog 1</span> -->
-                                        </a>
+                                        </inertia-link>
                                     </h1>
                                 </div>
                             </div>
                             <div class="header-column justify-content-end w-75">
                                 <div class="header-row">
-                                    <a href="http://themeforest.net/item/porto-responsive-html5-template/4106987" target="_blank">
+                                    <a href="invest-better-with-summit-stocks" target="_blank" >
                                         <img alt="Porto" class="img-fluid pl-3" src="theme/img/blog/blog-ad-2.jpg" />
                                     </a>
                                 </div>

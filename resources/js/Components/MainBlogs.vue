@@ -1,9 +1,10 @@
 <template>
     <article class="post post-large" v-for="mainBlog in mainBlogs" :key="mainBlog.id">
         <div class="post-image">
-            <a href="blog-post.html">
+            
+            <inertia-link  :href="mainBlog.post_url" >
                 <img :src="mainBlog.post_image" class="img-fluid img-thumbnail img-thumbnail-no-borders rounded-0" :alt="mainBlog.post_title" />
-            </a>
+            </inertia-link>
         </div>
 
         <div class="post-date text-1">
@@ -13,17 +14,21 @@
 
         <div class="post-content">
 
-            <h2 class="font-weight-semibold text-6 line-height-3 mb-3"><a href="blog-post.html" class="text-color-dark text-color-hover-primary">{{mainBlog.post_title}}</a></h2>
+            <h2 class="font-weight-semibold text-6 line-height-3 mb-3">
+              <inertia-link class="text-color-dark text-color-hover-primary"  :href="mainBlog.post_url" >
+                {{mainBlog.post_title}}
+              </inertia-link>
+              </h2>
             <p>{{mainBlog.post_content}} [...]</p>
 
             <div class="post-meta">
-                <span><i class="far fa-user"></i> By <a href="#">Mark Allen</a> </span>
+                <span><i class="far fa-user"></i> By <a href="javascript:void()">Mark Allen</a> </span>
                 <span><i class="far fa-folder"></i> 
                       
-                      <a href="#" v-for="category in mainBlog.post_category" :key="category">{{ category }}</a>
+                      <a href="javascript:void()" v-for="category in mainBlog.post_category" :key="category">{{ category }}</a>
                        </span>
-                <span><i class="far fa-comments"></i> <a href="#">12 Comments</a></span>
-                <span class="d-block d-sm-inline-block float-sm-right mt-3 mt-sm-0"><a href="blog-post.html" class="btn btn-xs btn-light text-1 text-uppercase">Read More</a></span>
+                <span><i class="far fa-comments"></i> <a href="javascript:void()">0 Comments</a></span>
+                <span class="d-block d-sm-inline-block float-sm-right mt-3 mt-sm-0"><inertia-link :href="mainBlog.post_url" class="btn btn-xs btn-light text-1 text-uppercase">Read More</inertia-link></span>
             </div>
 
         </div>

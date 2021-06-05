@@ -131,22 +131,22 @@
                             </div>
                         </div>
                         <div class="col-md-5">
-                            <aside class="widget widget_banner">
-                                    <h5 class="widget_title" style="text-align: center; width:100%">Summit Stocks Returns</h5>
+                            <aside class="widget widget_banner" style="border:2px solid #ececec; margin-bottom:35px;">
+                                    <h2 class="text-dark font-weight-bold text-8" style="text-align: center; width:100%">Summit Stocks Returns</h2>
                                         <div style="display:inline-block; width:100%;line-height:20px; text-align:center; border-top:2px solid #ececec;">
                                             <div style="display:inline-block; width:45%; margin:2%;line-height:25px;text-align:center;border-right:2px solid #ececec;">
-                                                <strong>Summit Stock</strong>
-                                                <p style="font-size: larger; font-weight:900; color:green">599%</p>
+                                                <strong style="font-size:x-large;">Summit Stock</strong>
+                                                <p style="font-size: x-large; font-weight:900; color:green">599%</p>
                                             </div>
                                             <div style="display:inline-block; width:45%; margin:2%;line-height:25px;text-align:center;">
-                                                <strong>S&amp;P 500</strong>
-                                                <p style="font-size: larger; font-weight:900; color:green">129%</p>
+                                                <strong style="font-size:x-large;">S&amp;P 500</strong>
+                                                <p style="font-size: x-large; font-weight:900; color:green">129%</p>
                                             </div>
                                         </div>
 
-                                        <div style="display:inline-block; width:100%;line-height:20px; text-align:center;margin-top:15px;">
+                                        <div style="display:inline-block; width:100%;line-height:20px; text-align:center;margin-top:50px;">
                                             <p>Summit Stock Launches in 2019</p>
-                                            <a href="" style="background-color: #ffb400 !important;margin-top:15px;" class="sc_button color_style_default sc_button_bordered full_width sc_button_size_large sc_button_icon_left">JOIN SUMMIT STOCK</a>
+                                            <a href="/invest-better-with-summit-stocks" class="btn btn-modern btn-secondary mb-2">JOIN SUMMIT STOCK</a>
                                         </div>
 
                                         
