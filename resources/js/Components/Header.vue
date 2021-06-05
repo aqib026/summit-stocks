@@ -31,7 +31,7 @@
                         </div>
                     </div>
                     <div class="header-nav-bar header-nav-bar-top-border bg-light">
-                        <div class="header-container container container-lg-custom">
+                        <div class="header-container container container-lg-custom" >
                             <div class="header-row">
                                 <div class="header-column">
                                     <div class="header-row justify-content-end justify-content-lg-start">

@@ -3,7 +3,9 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\leadController;
+use App\Http\Controllers\PostController;
 use Inertia\Inertia;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +26,9 @@ Route::get('/', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 });
+
+Route::get('{post_url}', 'PostController@index');
+
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard1');

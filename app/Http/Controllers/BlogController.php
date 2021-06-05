@@ -22,7 +22,7 @@ class BlogController extends Controller
      */
     public function gridBlogs(Request $request)
     {
-        $posts = $this->post->latest()->take(6)->get();
+        $posts = $this->post->where('post_category','like','%Hot Updates%')->take(6)->get();
 
         $blogs = [];
 
@@ -31,11 +31,16 @@ class BlogController extends Controller
             $temp['pubDate']    = $blog['pubDate'];
             $temp['id']    = $blog['id'];
             $temp['post_title'] = $blog['post_title'];
+            $temp['post_url'] = $blog['post_url'];
             $temp['post_category'] = $blog['post_category'];
 
             $html = $blog['post_content'];
             preg_match_all( '|<img.*?src=[\'"](.*?)[\'"].*?>|i',$html, $matches ); 
-            $temp['post_image'] = stripslashes($matches[ 1 ][ 0 ]);
+            if(isset($matches[1]) && isset($matches[1][0]))
+                $temp['post_image'] = stripslashes($matches[ 1 ][ 0 ]);
+            else
+                $temp['post_image'] = 'theme/img/avatars/avatar.jpg';    
+            
             $temp['post_content'] = substr($this->remove_html_comments(strip_tags($blog['post_content'])),0,150);
             $blogs[] = $temp;
         }
@@ -56,6 +61,7 @@ class BlogController extends Controller
             $temp['pubDate']    = $blog['pubDate'];
             $temp['id']    = $blog['id'];
             $temp['post_title'] = $blog['post_title'];
+            $temp['post_url'] = $blog['post_url'];
             $html = $blog['post_content'];
             preg_match_all( '|<img.*?src=[\'"](.*?)[\'"].*?>|i',$html, $matches ); 
 
@@ -75,12 +81,13 @@ class BlogController extends Controller
      */
     public function popularBlogs(Request $request)
     {
-        $posts = $this->post->where('post_category','like','Business')->take(5)->get();
+        $posts = $this->post->where('post_category','like','%Business%')->take(5)->get();
         $blogs = [];
         foreach($posts as $key => $blog){
             $temp = [];
             $temp['pubDate']    = $blog['pubDate'];
             $temp['id']    = $blog['id'];
+            $temp['post_url'] = $blog['post_url'];
             $temp['post_title'] = $blog['post_title'];
 
             $html = $blog['post_content'];
@@ -102,13 +109,22 @@ class BlogController extends Controller
      */
     public function mainBlogs(Request $request)
     {
-        $posts = $this->post->where('post_category','like','Economics')->take(8)->get();
+        $posts = $this->post->where('post_category','like','%Economics%')->take(8)->get();
         $blogs = [];
         foreach($posts as $key => $blog){
             $temp = [];
             $temp['pubDate']    = $blog['pubDate'];
+            $date = substr($blog['pubDate'],5,2);
+            $month = substr($blog['pubDate'],8,3);
+            $temp['post_url'] = $blog['post_url'];
+
+            $temp['date'] = $date;
+            $temp['month'] = $month;
+
             $temp['id']    = $blog['id'];
             $temp['post_title'] = $blog['post_title'];
+
+            $temp['post_category'] = explode(',',$blog['post_category']);
 
             $html = $blog['post_content'];
             preg_match_all( '|<img.*?src=[\'"](.*?)[\'"].*?>|i',$html, $matches ); 
@@ -116,6 +132,46 @@ class BlogController extends Controller
                 $temp['post_image'] = stripslashes($matches[ 1 ][ 0 ]);
             else
                 $temp['post_image'] = 'theme/img/blog/wide/blog-54.jpg';    
+
+            $temp['post_content'] = substr($this->remove_html_comments(strip_tags($blog['post_content'])),0,300);    
+
+            $blogs[] = $temp;
+        }
+        return $this->sendResponse($blogs, 'Grid Posts list');        
+    }       
+
+/**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function featuredBlogs(Request $request)
+    {
+        $posts = $this->post->where('post_category','like','%Stockwatch%')->take(1)->get();
+        $blogs = [];
+        foreach($posts as $key => $blog){
+            $temp = [];
+            $temp['pubDate']    = $blog['pubDate'];
+            $date = substr($blog['pubDate'],5,2);
+            $month = substr($blog['pubDate'],8,3);
+            $temp['post_url'] = $blog['post_url'];
+
+            $temp['date'] = $date;
+            $temp['month'] = $month;
+
+            $temp['id']    = $blog['id'];
+            $temp['post_title'] = $blog['post_title'];
+
+            $temp['post_category'] = explode(',',$blog['post_category']);
+
+            $html = $blog['post_content'];
+            preg_match_all( '|<img.*?src=[\'"](.*?)[\'"].*?>|i',$html, $matches ); 
+            if(isset($matches[1]) && isset($matches[1][0]))
+                $temp['post_image'] = stripslashes($matches[ 1 ][ 0 ]);
+            else
+                $temp['post_image'] = 'theme/img/blog/wide/blog-54.jpg';    
+
+            $temp['post_content'] = substr($this->remove_html_comments(strip_tags($blog['post_content'])),0,120);    
 
             $blogs[] = $temp;
         }

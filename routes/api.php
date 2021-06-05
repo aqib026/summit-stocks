@@ -23,3 +23,7 @@ Route::get('/getGridBlogs', 'BlogController@gridBlogs')->name('getGridBlogs');
 Route::get('/recentBlogs', 'BlogController@recentBlogs')->name('recentBlogs');
 
 Route::get('/popularBlogs', 'BlogController@popularBlogs')->name('popularBlogs');
+
+Route::get('/mainBlogs', 'BlogController@mainBlogs')->name('mainBlogs');
+
+Route::get('/featuredBlogs', 'BlogController@featuredBlogs')->name('featuredBlogs');
