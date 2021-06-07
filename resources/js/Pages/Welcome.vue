@@ -123,23 +123,23 @@
                  <div class="container container-lg-custom">
 
                     <div class="row mt-5 pt-3">
-                        <div class="col-md-7">
-                            <div class="blog-posts">
+                        <div class="col-md-9">
+                            <div id="portfolioLoadMoreWrapper" class="row masonry">
 
                                      <main-blogs></main-blogs>
 
                             </div>
                         </div>
-                        <div class="col-md-5">
-                            <aside class="widget widget_banner" style="border:2px solid #ececec; margin-bottom:35px;">
-                                    <h2 class="text-dark font-weight-bold text-8" style="text-align: center; width:100%">Summit Stocks Returns</h2>
+                        <div class="col-md-3">
+                            <aside class="widget widget_banner" style="background-color:#1D51C7; border:2px solid #1D51C7; margin-bottom:35px; color:#fff;">
+                                    <h2 class="font-weight-bold text-8" style="text-align: center; width:100%; color:#F9A62F;line-height:80px;">Summit Stocks Returns</h2>
                                         <div style="display:inline-block; width:100%;line-height:20px; text-align:center; border-top:2px solid #ececec;">
-                                            <div style="display:inline-block; width:45%; margin:2%;line-height:25px;text-align:center;border-right:2px solid #ececec;">
-                                                <strong style="font-size:x-large;">Summit Stock</strong>
+                                            <div style="display:inline-block; width:45%; margin:2%;line-height:60px;text-align:center;border-right:2px solid #ececec;">
+                                                <strong style="font-size:larger;">Summit Stock</strong>
                                                 <p style="font-size: x-large; font-weight:900; color:green">599%</p>
                                             </div>
-                                            <div style="display:inline-block; width:45%; margin:2%;line-height:25px;text-align:center;">
-                                                <strong style="font-size:x-large;">S&amp;P 500</strong>
+                                            <div style="display:inline-block; width:45%; margin:2%;line-height:60px;text-align:center;">
+                                                <strong style="font-size:larger;">S&amp;P 500</strong>
                                                 <p style="font-size: x-large; font-weight:900; color:green">129%</p>
                                             </div>
                                         </div>

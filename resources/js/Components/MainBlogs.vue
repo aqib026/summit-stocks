@@ -1,9 +1,10 @@
 <template>
-    <article class="post post-large" v-for="mainBlog in mainBlogs" :key="mainBlog.id">
+    <div class="masonry-item no-default-style col-md-6 mb-5" v-for="mainBlog in mainBlogs" :key="mainBlog.id">
+    <article class="post post-large" >
         <div class="post-image">
             
             <inertia-link  :href="mainBlog.post_url" >
-                <img :src="mainBlog.post_image" class="img-fluid img-thumbnail img-thumbnail-no-borders rounded-0" :alt="mainBlog.post_title" />
+                <img :src="mainBlog.post_image" style="max-height:306px; width:100%;" class="img-fluid img-thumbnail img-thumbnail-no-borders rounded-0" :alt="mainBlog.post_title" />
             </inertia-link>
         </div>
 
@@ -28,11 +29,12 @@
                       <a href="javascript:void()" v-for="category in mainBlog.post_category" :key="category">{{ category }}</a>
                        </span>
                 <span><i class="far fa-comments"></i> <a href="javascript:void()">0 Comments</a></span>
-                <span class="d-block d-sm-inline-block float-sm-right mt-3 mt-sm-0"><inertia-link :href="mainBlog.post_url" class="btn btn-xs btn-light text-1 text-uppercase">Read More</inertia-link></span>
+                
             </div>
 
         </div>
     </article>   
+    </div>
 </template>
 
 <script>

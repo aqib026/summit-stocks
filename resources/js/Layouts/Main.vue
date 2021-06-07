@@ -1,18 +1,11 @@
 <template>
 <header class="navbar navbar-light sticky-top bg-dark flex-md-nowrap p-0 shadow bg-light" style="" id="header2">
-  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">
   	<inertia-link :href="route('dashboard')">
-                                   <!--  <breeze-application-logo class="block h-9 w-auto" /> -->
-    <img alt="Porto" width="237" height="55" src="/theme/img/cropped-logo@2x.png">
-        </inertia-link></a>
- <!--  <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button> -->
-
+      <img alt="Porto" width="237" height="55" src="/theme/img/cropped-logo@2x.png">
+    </inertia-link>
   <ul class="navbar-nav px-3">
-    <!-- <li class="nav-item"> -->
 <breeze-dropdown align="right" width="48">
-<template #trigger>
+  <template #trigger>
     <span class="inline-flex rounded-md">
         <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
             {{ $page.props.auth.user.name }}
@@ -22,33 +15,38 @@
             </svg>
         </button>
     </span>
-</template>
+  </template>
 
-<template #content>
+  <template #content>
     <breeze-dropdown-link :href="route('logout')" method="post" as="button">
         Log Out
     </breeze-dropdown-link>
-</template>
+  </template>
 </breeze-dropdown>
 </ul>
 
 </header>
   <div class="container-fluid">
-  <div class="row" style="margin-top:50px;">
-  	<div class="col-md-3 col-lg-3 col-sm-3 col-xl-3">
+  <div class="row" style="margin-top:25px;">
+  	<div id="sidebarMenuDiv" class="col-md-2 col-lg-2 col-sm-2 col-xl-2">
     <nav id="sidebarMenu" class="d-md-block sidebar">
       <div class="">
         <ul class="nav flex-column">
-         <li class="nav-item">
-        <a class="nav-link" :href="route('dashboard')" :class="{active_dashboard: route().current('dashboard')}" :active="route().current('dashboard')">
-         DASHBOARD
-        </a>
-      </li>  
-      <li class="nav-item">
-        <a class="nav-link" :href="route('leads')" :class="{active: route().current('leads')}"  :active="route().current('leads')" v-if=" $page.props.auth.user.type =='admin' ">
-         LEADS
-        </a>
-      </li>
+            <li class="nav-item">
+              <inertia-link class="nav-link" :href="route('dashboard')" :class="{active_dashboard: route().current('dashboard')}" :active="route().current('dashboard')">
+              DASHBOARD
+              </inertia-link>
+            </li>  
+            <li class="nav-item">
+              <inertia-link class="nav-link" :href="route('leads')" :class="{active: route().current('leads')}"  :active="route().current('leads')" v-if=" $page.props.auth.user.type =='admin' ">
+                LEADS
+              </inertia-link>
+            </li>
+            <li class="nav-item">
+              <inertia-link class="nav-link" :href="route('blogs_list')" :class="{active: route().current('blogs_list')}"  :active="route().current('blogs_list')" v-if=" $page.props.auth.user.type =='admin' ">
+                BLOG POSTS
+              </inertia-link>
+            </li>
         </ul>
       </div>
     </nav>
@@ -61,7 +59,6 @@
 </div>
 </div>
 </template>
-
 <script>
     // import BreezeAuthenticatedLayout from '@/Layouts/Authenticated'
     import BreezeApplicationLogo from '@/Components/ApplicationLogo'

@@ -21,11 +21,6 @@ class leadController extends Controller
      */
     public function index(Request $request)
     {
-        // $data = Lead::orderBy('id', 'desc')
-        // $data = Lead::when($request->term,function($query,$term){
-        //     $query->where('first_name','LIKE','%'.$term.'%');
-        //     })->paginate(10);
-        // dd($data);
         return Inertia::render('Leads1', [
             'leads' =>User::when($request->term,function($query,$term){
             $query->where('first_name','LIKE','%'.$term.'%');
@@ -81,16 +76,8 @@ class leadController extends Controller
     public function edit($id)
     {
          $lead = User::find($id);
-         // dd($lead);
          return Inertia::render('Lead1', ['lead' => $lead
-      ]); 
-      //  return Inertia::render('Lead', ['lead' =>
-      //      [
-      //           'id' => $lead->id,
-      //           'first_name' => $lead->first_name,
-      //       ]
-      // ]);
-      
+      ]);       
     }  
       public function Search(Request $request)
     {
@@ -109,14 +96,7 @@ class leadController extends Controller
                         ->paginate(10);
                                 }
 
-        // dd($leads);
         return Inertia::render('Leads', ['leads' => $leads]);
-      //    return Inertia::render('Lead', ['lead' =>
-      //      [
-      //           'id' => $lead->id,
-      //           'first_name' => $lead->first_name,
-      //       ]
-      // ]);
       
     }
 

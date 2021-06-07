@@ -33,8 +33,8 @@
                         <td>{{ lead.phone_no }}</td>
 					  	<!-- <td>{{ lead.created_at }}</td> -->
 					  	<td>
-					  		<a :href="route('lead',{ id: lead.id })" class="btn btn-info">Edit</a> |
-					  		<a href="" class="btn btn-danger" @click="destroy(lead.id)">Delete</a>
+					  		<inertia-link :href="route('lead',{ id: lead.id })" class="btn btn-info">Edit</inertia-link> |
+					  		<inertia-link href="" class="btn btn-danger" @click="destroy(lead.id)">Delete</inertia-link>
 					  	</td>
 					  </tr>
 					  </tbody>

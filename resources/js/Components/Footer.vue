@@ -101,7 +101,7 @@
                         </div>
                     </div>
                 </div>
-                <div style="display:block; position:fixed; width:100%; bottom:0px;">
+                <div style="display:block; position:fixed; width:100%; bottom:0px;" v-if="showTicker == true">
                 <iframe id='st_f145943643b84038989d4c33cb78f373' frameBorder='0' scrolling='no' width='100%' height='56px;' src='https://api.stockdio.com/visualization/financial/charts/v1/Ticker?app-key=97FB1781D95247F490A05175F2AC2546&stockExchange=USA&symbols=AAPL;MSFT&palette=Financial-Light&layoutType=8&onload=st_f145943643b84038989d4c33cb78f373'></iframe>
                 </div>
             </footer> 
@@ -109,6 +109,9 @@
 
 <script>
     export default {
-
+        props: ['showTicker'],
+        created() {
+            console.log(this.showTicker);
+        }
     }
 </script>

@@ -28,6 +28,8 @@ Route::get('/', function () {
 });
 
 
+Route::get('/contact-customer-service','ContactUs@index')->name('contact-customer-service');
+
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard1');
@@ -39,4 +41,30 @@ Route::get('/test', function () {
 
 require __DIR__.'/auth.php';
 
+Route::get('/leads', [leadController::class, 'index'])
+                ->middleware(['auth', 'verified'])
+                ->name('leads');
+Route::get('/Createlead', [leadController::class, 'create'])
+                ->middleware(['auth', 'verified'])
+                ->name('Createlead');
+Route::post('/Createlead', [leadController::class, 'store'])
+                ->middleware(['auth', 'verified'])
+                ->name('Createlead');
+Route::get('/lead/{id}', [leadController::class, 'edit'])
+                ->middleware(['auth', 'verified'])
+                ->name('lead');
+Route::put('/lead/{id}', [leadController::class, 'update'])
+                ->middleware(['auth', 'verified'])
+                ->name('lead');
+Route::delete('/lead/{id}', [leadController::class, 'destroy'])
+                ->middleware(['auth', 'verified'])
+                ->name('deletelead');
+Route::get('/search_lead/{value}', [leadController::class, 'Search'])
+                ->middleware(['auth', 'verified'])
+                ->name('search_lead');
+
+
 Route::get('{post_url}', 'PostController@index');
+Route::get('blogs/list', 'PostController@list')->middleware(['auth', 'verified'])->name('blogs_list');
+Route::get('blogs/edit/{id}', 'PostController@edit')->middleware(['auth', 'verified'])->name('blog_edit');
+Route::post('blogs/update', 'PostController@update')->middleware(['auth', 'verified'])->name('blog_update');

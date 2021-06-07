@@ -28,36 +28,6 @@ Route::post('/update_experience', [RegisteredUserController::class, 'update_expe
                 ->name('update_experience');
 
 
-Route::get('/leads', [leadController::class, 'index'])
-                ->middleware(['auth', 'verified'])
-                ->name('leads');
-
-// Route::post('/leads', [leadController::class, 'Search'])
-//                 ->middleware(['auth', 'verified'])
-//                 ->name('leads');
-
-Route::get('/Createlead', [leadController::class, 'create'])
-                ->middleware(['auth', 'verified'])
-                ->name('Createlead');
-
-Route::post('/Createlead', [leadController::class, 'store'])
-                ->middleware(['auth', 'verified'])
-                ->name('Createlead');
-
-Route::get('/lead/{id}', [leadController::class, 'edit'])
-                ->middleware(['auth', 'verified'])
-                ->name('lead');
-
-Route::put('/lead/{id}', [leadController::class, 'update'])
-                ->middleware(['auth', 'verified'])
-                ->name('lead');
-
-Route::delete('/lead/{id}', [leadController::class, 'destroy'])
-                ->middleware(['auth', 'verified'])
-                ->name('deletelead');
-Route::get('/search_lead/{value}', [leadController::class, 'Search'])
-                ->middleware(['auth', 'verified'])
-                ->name('search_lead');
 
 
 

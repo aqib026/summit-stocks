@@ -1,64 +1,25 @@
-/*.bg-light{
-	background-color: #0d6efd!important;
-}
-.bg-light a{
-	color:  #ffffffd1!important;
-}.bg-light a.border{
-	background-color: #6c757d!important;
-	border-color: #6c757d!important;
-	padding-left: 20px;
-	padding-right: 20px;
-}
-.nav-link.active {
-    color: white !important;
-    background-color: #007bff;
-}*/
-
-/*#Sidebar a{
-	color: #6c757d!important;
-}*/
 
 #Sidebar{
-	    border: 2px solid whitesmoke;
-	    margin-top: 10px;
-	    margin-left: 10px;
-	    border-radius: 25px;
-
+	border: 1px solid #ececec;
+	margin-top: 10px;
+	margin-left: 10px;
 }
-/*#sidebarMenu a{
-	color: #6c757d!important;
-}*/
 
 #sidebarMenu{
-	    border: 2px solid whitesmoke;
-	   /* margin-top: 60px;
-	    margin-left: 10px;*/
-	    border-radius: 25px;
-	    width: 360px;
-	    height: 300px;
+	border: 1px solid #ececec;
+	height: 300px;
 }
 #sidebarMenu li{
-	    border-bottom: 2px solid whitesmoke;
-	   
+	border-bottom: 1px solid #ececec;	   
 }
 
 .sidebar {
- /* position: fixed;*/
-  top: 0;
-  /* rtl:raw:
-  right: 0;
-  */
-  bottom: 0;
-  /* rtl:remove */
-  left: 0;
-  z-index: 100; /* Behind the navbar */
- /* padding: 48px 0 0; /* Height of navbar */
-  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);*/
+	top: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 100; /* Behind the navbar */
+	box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);*/
 }
-
-/*#header2 a{
-	color: white !important;
-}*/
 
 .mt-10{
 	margin-top: 10px;

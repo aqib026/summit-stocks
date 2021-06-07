@@ -51,9 +51,9 @@
                                                                 </a>   
                                                             </li>   
                                                             <li class="dropdown ml-0">
-                                                                <a class="dropdown-item dropdown-toggle" href="index.html">
+                                                                <inertia-link class="dropdown-item dropdown-toggle" href="/contact-customer-service">
                                                                     Contact Us
-                                                                </a>   
+                                                                </inertia-link>   
                                                             </li>   
                                                             <li class="dropdown ml-0">
                                                                 <a class="dropdown-item dropdown-toggle" href="index.html">

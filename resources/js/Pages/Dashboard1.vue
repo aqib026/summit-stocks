@@ -6,7 +6,7 @@
 </template>
 
 <script>
-     import MainLayout from '@/Layouts/Main'
+    import MainLayout from '@/Layouts/Main'
     import BreezeAuthenticatedLayout from '@/Layouts/Authenticated'
 
     export default {
