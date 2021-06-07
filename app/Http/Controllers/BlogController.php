@@ -34,12 +34,7 @@ class BlogController extends Controller
             $temp['post_url'] = $blog['post_url'];
             $temp['post_category'] = $blog['post_category'];
 
-            $html = $blog['post_content'];
-            preg_match_all( '|<img.*?src=[\'"](.*?)[\'"].*?>|i',$html, $matches ); 
-            if(isset($matches[1]) && isset($matches[1][0]))
-                $temp['post_image'] = stripslashes($matches[ 1 ][ 0 ]);
-            else
-                $temp['post_image'] = 'theme/img/avatars/avatar.jpg';    
+            $temp['post_image'] = '/uploads/'.$blog['post_image'];
             
             $temp['post_content'] = substr($this->remove_html_comments(strip_tags($blog['post_content'])),0,150);
             $blogs[] = $temp;
@@ -62,13 +57,8 @@ class BlogController extends Controller
             $temp['id']    = $blog['id'];
             $temp['post_title'] = $blog['post_title'];
             $temp['post_url'] = $blog['post_url'];
-            $html = $blog['post_content'];
-            preg_match_all( '|<img.*?src=[\'"](.*?)[\'"].*?>|i',$html, $matches ); 
 
-            if(isset($matches[1]) && isset($matches[1][0]))
-                $temp['post_image'] = stripslashes($matches[ 1 ][ 0 ]);
-            else
-                $temp['post_image'] = 'theme/img/avatars/avatar.jpg';    
+            $temp['post_image'] = '/uploads/'.$blog['post_image'];
             $blogs[] = $temp;
         }
         return $this->sendResponse($blogs, 'Grid Posts list');        
@@ -90,12 +80,7 @@ class BlogController extends Controller
             $temp['post_url'] = $blog['post_url'];
             $temp['post_title'] = $blog['post_title'];
 
-            $html = $blog['post_content'];
-            preg_match_all( '|<img.*?src=[\'"](.*?)[\'"].*?>|i',$html, $matches ); 
-            if(isset($matches[1]) && isset($matches[1][0]))
-                $temp['post_image'] = stripslashes($matches[ 1 ][ 0 ]);
-            else
-                $temp['post_image'] = 'theme/img/avatars/avatar.jpg';    
+            $temp['post_image'] = '/uploads/'.$blog['post_image'];
 
             $blogs[] = $temp;
         }
@@ -126,12 +111,7 @@ class BlogController extends Controller
 
             $temp['post_category'] = explode(',',$blog['post_category']);
 
-            $html = $blog['post_content'];
-            preg_match_all( '|<img.*?src=[\'"](.*?)[\'"].*?>|i',$html, $matches ); 
-            if(isset($matches[1]) && isset($matches[1][0]))
-                $temp['post_image'] = stripslashes($matches[ 1 ][ 0 ]);
-            else
-                $temp['post_image'] = 'theme/img/blog/wide/blog-54.jpg';    
+            $temp['post_image'] = '/uploads/'.$blog['post_image'];
 
             $temp['post_content'] = substr($this->remove_html_comments(strip_tags($blog['post_content'])),0,300);    
 
@@ -164,12 +144,7 @@ class BlogController extends Controller
 
             $temp['post_category'] = explode(',',$blog['post_category']);
 
-            $html = $blog['post_content'];
-            preg_match_all( '|<img.*?src=[\'"](.*?)[\'"].*?>|i',$html, $matches ); 
-            if(isset($matches[1]) && isset($matches[1][0]))
-                $temp['post_image'] = stripslashes($matches[ 1 ][ 0 ]);
-            else
-                $temp['post_image'] = 'theme/img/blog/wide/blog-54.jpg';    
+            $temp['post_image'] = '/uploads/'.$blog['post_image'];
 
             $temp['post_content'] = substr($this->remove_html_comments(strip_tags($blog['post_content'])),0,120);    
 
