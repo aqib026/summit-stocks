@@ -181,7 +181,7 @@
                
     </div>
     
-    <footer-component></footer-component>
+    <footer-component showTicker="true"></footer-component>
 
 </template>
 
