@@ -59,7 +59,7 @@
       
 
         @env ('local')
-            <script src="http://localhost:3000/browser-sync/browser-sync-client.js"></script>
+            <script src="http://localhost:8000/browser-sync/browser-sync-client.js"></script>
         @endenv
        <!-- Vendor -->
       <!--   <script src="{{ mix('js/app.js') }}"></script> -->

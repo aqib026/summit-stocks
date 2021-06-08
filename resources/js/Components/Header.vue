@@ -1,5 +1,5 @@
 <template>
-        <header id="header" data-plugin-options="{'stickyEnabled': true, 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': true, 'stickyStartAt': 173, 'stickySetTop': '-173px', 'stickyChangeLogo': false}">
+        <header id="header" style="height:235px" >
                 <div class="header-body border-0">
 
 
@@ -15,7 +15,7 @@
                                 <div class="header-row">
                                     <h1 class="header-logo">
                                         <inertia-link href="/">
-                                            <img alt="Porto" width="237" height="55" src="theme/img/cropped-logo@2x.png">
+                                            <img alt="Porto" width="237" height="55" src="/theme/img/cropped-logo@2x.png">
                                            <!--  <span class="hide-text">Porto - Demo Blog 1</span> -->
                                         </inertia-link>
                                     </h1>
@@ -24,7 +24,7 @@
                             <div class="header-column justify-content-end w-75">
                                 <div class="header-row">
                                     <a href="invest-better-with-summit-stocks" target="_blank" >
-                                        <img alt="Porto" class="img-fluid pl-3" src="theme/img/blog/blog-ad-2.jpg" />
+                                        <img alt="Porto" class="img-fluid pl-3" src="/theme/img/blog/blog-ad-2.jpg" />
                                     </a>
                                 </div>
                             </div>

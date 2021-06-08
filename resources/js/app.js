@@ -6,7 +6,7 @@ import { App as InertiaApp, plugin as InertiaPlugin } from '@inertiajs/inertia-v
 import { InertiaProgress } from '@inertiajs/progress';
 
 window.Vue = require('vue');
-  
+
 
 
 const el = document.getElementById('app');

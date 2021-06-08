@@ -64,7 +64,12 @@ Route::get('/search_lead/{value}', [leadController::class, 'Search'])
                 ->name('search_lead');
 
 
-Route::get('{post_url}', 'PostController@index');
 Route::get('blogs/list', 'PostController@list')->middleware(['auth', 'verified'])->name('blogs_list');
 Route::get('blogs/edit/{id}', 'PostController@edit')->middleware(['auth', 'verified'])->name('blog_edit');
 Route::post('blogs/update', 'PostController@update')->middleware(['auth', 'verified'])->name('blog_update');
+
+Route::get('market-earning-activity', 'MarketController@index')->name('market-earning-activity');
+
+Route::get('market-earning-activity/{symbol}', 'MarketController@show')->name('market-earning-activity-details');
+
+Route::get('{post_url}', 'PostController@index');
