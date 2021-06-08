@@ -4,8 +4,9 @@
 
     <header-component></header-component>
     <div role="main" class="main">
+     <major-indexes />   
      <section class="section border-0 m-0 pb-3">
-                    <div class="container container-lg-custom" style="margin-top:210px !important; ">
+                    <div class="container container-lg-custom">
                         <div class="row pb-1">
 
                             <div class="col-sm-6 col-lg-4 mb-4 pb-2" v-for="gridBlog in gridBlogs" :key="gridBlog.id">
@@ -159,13 +160,6 @@
                                 <h5 class="font-weight-semi-bold pt-4">Photos from Instagram</h5>
                                 <!-- <div class="instagram-feed" data-type="nomargins" class="mb-4 pb-1"></div> -->
                                 <h5 class="font-weight-semi-bold pt-4 mb-2">Tags</h5>
-                                <!-- <div class="mb-3 pb-1">
-                                    <a href="#"><span class="badge badge-dark badge-sm badge-pill text-uppercase px-2 py-1 mr-1">design</span></a>
-                                    <a href="#"><span class="badge badge-dark badge-sm badge-pill text-uppercase px-2 py-1 mr-1">brands</span></a>
-                                    <a href="#"><span class="badge badge-dark badge-sm badge-pill text-uppercase px-2 py-1 mr-1">video</span></a>
-                                    <a href="#"><span class="badge badge-dark badge-sm badge-pill text-uppercase px-2 py-1 mr-1">business</span></a>
-                                    <a href="#"><span class="badge badge-dark badge-sm badge-pill text-uppercase px-2 py-1 mr-1">travel</span></a>
-                                </div> -->
 
                                 <a href="http://themeforest.net/item/porto-responsive-html5-template/4106987" target="_blank" class="my-4 pt-3 d-block">
                                     <img alt="Porto" class="img-fluid" src="theme/img/blog/blog-ad-1-medium.jpg" />
@@ -223,6 +217,7 @@ import RecentBlogs from '../Components/RecentBlogs.vue'
 import PopularBlogs from '../Components/PopularBlogs.vue'
 import MainBlogs from '../Components/MainBlogs.vue'
 import SingleFeaturedPost from '../Components/SingleFeaturedPost.vue'
+import MajorIndexesVue from '@/Components/MajorIndexes.vue'
 
 
 export default {
@@ -233,6 +228,7 @@ components: {
     'popular-blogs': PopularBlogs,
     'main-blogs' : MainBlogs,
     'single-featured-post' : SingleFeaturedPost,
+    'major-indexes' : MajorIndexesVue,
     
   },    
   data() {

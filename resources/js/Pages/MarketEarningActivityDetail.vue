@@ -16,53 +16,21 @@
 
 
 			<div class="row mb-5">
-				<div class="col-md-6">
-					<table class="table table-striped">
-						<tr>
-							<td>Previous Close</td>
-							<td><strong>{{ Summary.previousClose}}</strong></td>
-						</tr>
-						<tr>
-							<td>Open</td>
-							<td><strong>{{ Summary.open}}</strong></td>
-						</tr>
-						<tr>
-							<td>Day's Range</td>
-							<td><strong>{{ Summary.dayLow}} - {{ Summary.dayHigh}}</strong></td>
-						</tr>
-						<tr>
-							<td>52 Week Range</td>
-							<td><strong>{{ Summary.yearLow}} - {{ Summary.yearHigh}}</strong></td>
-						</tr>
-						<tr>
-							<td>Volume</td>
-							<td><strong>{{ Summary.volume }}</strong></td>
-						</tr>
-						<tr>
-							<td>Avg. Volume</td>
-							<td><strong>{{ Summary.avgVolume}}</strong></td>
-						</tr>
-					</table>
+				<div class="col-md-12">
+				<div class="tabs">
+					<ul class="nav nav-tabs nav-justified flex-column flex-md-row"> <!-- nav-link active-->
+						<li class="nav-item"><a id="tab1" :class="summaryClass">Summary</a></li>
+						<li class="nav-item"><a id="tab2" :class="historyClass" @click="showHistoricalData()">Historical Data</a></li>
+					</ul>				
+					<div class="tab-content">
+						<div  id="content1" :class="summaryContentClass">
+							<Summary :SummaryData="SummaryData" />
+						</div>
+						<div id="content2" :class="historyContentClass">
+							<Historical v-if="showHistory" :symbol="symbol" />
+						</div>
+					</div>
 				</div>
-				<div class="col-md-6">
-					<table class="table table-striped">
-						<tr>
-							<td>Market Cap</td>
-							<td><strong>{{ Summary.marketCap}}</strong></td>
-						</tr>
-						<tr>
-							<td>EPS (TTM)</td>
-							<td><strong>{{ RoundMe(Summary.eps) }}</strong></td>
-						</tr>
-						<tr>
-							<td>PE Ratio (TTM)</td>
-							<td><strong>{{ RoundMe(Summary.pe) }}</strong></td>
-						</tr>
-						<tr>
-							<td>Avg. Volume</td>
-							<td><strong>{{ Summary.avgVolume}}</strong></td>
-						</tr>
-					</table>
 				</div>
 			</div>
 
@@ -105,25 +73,50 @@
 </style>
 <script>
  	import MainSideBar from '@/Layouts/MainSideBar'
+	import Summary from '@/Components/Summary'
+	import Historical from '@/Components/Historical'
+
 
     export default {
         components: {
 			MainSideBar,
+			Summary,
+			Historical
         },   
-         props: {
+        props: {
 			symbol: String,
 			QuarterlyEarnings: Array,
-			Summary: Object,
+			SummaryData: Object,
 			Profile: Object,
         },
         data() {
             return {
-                 
+				showHistory:false,
+				summaryClass:'nav-link active',
+				historyClass:'nav-link',
+				summaryContentClass:'tab-pane active',
+				historyContentClass:'tab-pane',
             }
         },
-        computed: {
+        computed:{
+
             },
         methods: {
+			showHistoricalData(){
+				this.summaryClass = 'nav-link';
+				this.historyClass = 'nav-link active';
+
+				this.summaryContentClass = 'tab-pane';
+				this.historyContentClass = 'tab-pane active';
+				this.showHistory = true;
+				// axios
+				// 	.get("/api/"+this.symbol+"/history")
+				// 	.then(({ data }) => {
+				// 		this.HistoricalData = data;		
+				// 		this.showHistory = true;
+				// 		}
+				// 	);
+			},
             RoundMe(val){
 				return  val.toFixed(2);
 			},

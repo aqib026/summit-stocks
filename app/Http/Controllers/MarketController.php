@@ -29,8 +29,23 @@ class MarketController extends Controller
         
         return Inertia::render('MarketEarningActivityDetail',[  'symbol' => $symbol,
                                                                 'QuarterlyEarnings' => $QuarterlyEarnings,
-                                                                'Summary' => $Summary[0],
+                                                                'SummaryData' => $Summary[0],
                                                                 'Profile' => $Profile[0] ]);
+    }
+
+    public function history($symbol){
+        $url = 'https://financialmodelingprep.com/api/v3/historical-price-full/'.$symbol.'?from=2021-04-01&to=2021-06-07&apikey=eeb2d697583a3add8d4c7b38874a52bb';
+        $history = file_get_contents($url);
+        return $history; 
+
+    }
+
+    public function majorIndexes(){
+
+        $url = 'https://financialmodelingprep.com/api/v3/quote/%5EGSPC,%5EDJI,%5ENDX,%5ERUT,%5EFTSE,%5EN225?apikey=eeb2d697583a3add8d4c7b38874a52bb';
+        $majorIndexes = file_get_contents($url);
+        return $majorIndexes; 
+
     }
 
 }

@@ -27,3 +27,7 @@ Route::get('/popularBlogs', 'BlogController@popularBlogs')->name('popularBlogs')
 Route::get('/mainBlogs', 'BlogController@mainBlogs')->name('mainBlogs');
 
 Route::get('/featuredBlogs', 'BlogController@featuredBlogs')->name('featuredBlogs');
+
+Route::get('/{symbol}/history', 'MarketController@history')->name('featuredBlogs');
+
+Route::get('/major-indexes', 'MarketController@majorIndexes')->name('major-indexes');
