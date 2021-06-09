@@ -41,10 +41,89 @@ class MarketController extends Controller
     }
 
     public function majorIndexes(){
-
         $url = 'https://financialmodelingprep.com/api/v3/quote/%5EGSPC,%5EDJI,%5ENDX,%5ERUT,%5EFTSE,%5EN225?apikey=eeb2d697583a3add8d4c7b38874a52bb';
         $majorIndexes = file_get_contents($url);
         return $majorIndexes; 
+    }
+
+    public function realtime(Request $request , $symbol){
+        $url = 'https://financialmodelingprep.com/api/v3/historical-chart/15min/'.$symbol.'?apikey=eeb2d697583a3add8d4c7b38874a52bb';
+        $realTime = json_decode(file_get_contents($url));
+        return Inertia::render('MarketEarningActivityDetail',[  'symbol' => $symbol,
+                                                                'realTime' => $realTime ]);
+    }
+
+    public function dividendHistory(Request $request , $symbol){
+
+        $url = 'https://financialmodelingprep.com/api/v3/profile/' . $symbol . '?apikey=eeb2d697583a3add8d4c7b38874a52bb';
+        $Profile = json_decode(file_get_contents($url));
+
+        $url = 'https://financialmodelingprep.com/api/v3/historical-price-full/stock_dividend/' . $symbol . '?apikey=eeb2d697583a3add8d4c7b38874a52bb';
+        $dividendHistory = json_decode(file_get_contents($url));
+
+        return Inertia::render('MarketEarningActivitydividendHistory',[  'symbol' => $symbol,
+                                                                'Profile' => $Profile[0],
+                                                                'dividendHistory' => $dividendHistory ]);
+
+    }
+
+    public function historicalData(Request $request , $symbol){
+
+        $url = 'https://financialmodelingprep.com/api/v3/profile/' . $symbol . '?apikey=eeb2d697583a3add8d4c7b38874a52bb';
+        $Profile = json_decode(file_get_contents($url));
+
+        $current_date = date('Y-m-d');
+        $past_date = date("Y-m-d", strtotime($current_date." -4 months"));
+
+
+        $url = 'https://financialmodelingprep.com/api/v3/historical-price-full/AAPL?from='.$past_date.'&to='.$current_date.'&apikey=eeb2d697583a3add8d4c7b38874a52bb';
+        $HistoricalData = json_decode(file_get_contents($url));
+
+        return Inertia::render('MarketEarningActivityHistoryData',[  'symbol' => $symbol,
+                                                                'Profile' => $Profile[0],
+                                                                'HistoricalData' => $HistoricalData ]);
+
+    }
+
+    public function financials(Request $request , $symbol){
+        $url = 'https://financialmodelingprep.com/api/v3/profile/' . $symbol . '?apikey=eeb2d697583a3add8d4c7b38874a52bb';
+        $Profile = json_decode(file_get_contents($url));
+
+
+        $url = 'https://financialmodelingprep.com/api/v3/income-statement/' . $symbol . '?limit=4&apikey=eeb2d697583a3add8d4c7b38874a52bb';
+        $Financials = json_decode(file_get_contents($url));
+
+        return Inertia::render('MarketEarningActivityFinancials',[  'symbol' => $symbol,
+                                                                    'Profile' => $Profile[0],
+                                                                    'Financials' => $Financials ]);
+
+    }
+
+    public function news(Request $request , $symbol){
+        $url = 'https://financialmodelingprep.com/api/v3/profile/' . $symbol . '?apikey=eeb2d697583a3add8d4c7b38874a52bb';
+        $Profile = json_decode(file_get_contents($url));
+
+
+        $url = 'https://financialmodelingprep.com/api/v3/stock_news?tickers=' . $symbol . '&limit=10&apikey=eeb2d697583a3add8d4c7b38874a52bb';
+        $News = json_decode(file_get_contents($url));
+
+        return Inertia::render('MarketEarningActivityNews',[  'symbol' => $symbol,
+                                                                    'Profile' => $Profile[0],
+                                                                    'News' => $News ]);
+
+    }
+
+    public function pressRelease(Request $request , $symbol){
+        $url = 'https://financialmodelingprep.com/api/v3/profile/' . $symbol . '?apikey=eeb2d697583a3add8d4c7b38874a52bb';
+        $Profile = json_decode(file_get_contents($url));
+
+
+        $url = 'https://financialmodelingprep.com/api/v3/stock_news?tickers=' . $symbol . '&limit=10&apikey=eeb2d697583a3add8d4c7b38874a52bb';
+        $PressRelease = json_decode(file_get_contents($url));
+
+        return Inertia::render('MarketEarningActivityPressRelease',['symbol' => $symbol,
+                                                                    'Profile' => $Profile[0],
+                                                                    'pressReleases' => $PressRelease ]);
 
     }
 

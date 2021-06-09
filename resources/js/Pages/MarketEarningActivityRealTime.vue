@@ -19,20 +19,7 @@
 
 			<div class="row mb-5">
 				<div class="col-md-12">
-				<div class="tabs">
-					<ul class="nav nav-tabs nav-justified flex-column flex-md-row"> <!-- nav-link active-->
-						<li class="nav-item"><a id="tab1" :class="summaryClass">Summary</a></li>
-						<li class="nav-item"><a id="tab2" :class="historyClass" @click="showHistoricalData()">Historical Data</a></li>
-					</ul>				
-					<div class="tab-content">
-						<div  id="content1" :class="summaryContentClass">
-							<Summary :SummaryData="SummaryData" />
-						</div>
-						<div id="content2" :class="historyContentClass">
-							<Historical v-if="showHistory" :symbol="symbol" />
-						</div>
-					</div>
-				</div>
+					
 				</div>
 			</div>
 
@@ -75,58 +62,30 @@
 </style>
 <script>
  	import MainSideBar from '@/Layouts/MainSideBar'
-	import Summary from '@/Components/Summary'
-	import Historical from '@/Components/Historical'
 	import LeftSideBar from '@/Components/LeftSideBar'
 
 
     export default {
         components: {
 			MainSideBar,
-			Summary,
-			Historical,
 			LeftSideBar,
+			LineChart,
         },   
         props: {
 			symbol: String,
-			QuarterlyEarnings: Array,
-			SummaryData: Object,
-			Profile: Object,
+			realTime:Object,
         },
+	
         data() {
             return {
 				showHistory:false,
-				summaryClass:'nav-link active',
-				historyClass:'nav-link',
-				summaryContentClass:'tab-pane active',
-				historyContentClass:'tab-pane',
             }
         },
         computed:{
 
             },
         methods: {
-			showHistoricalData(){
-				this.summaryClass = 'nav-link';
-				this.historyClass = 'nav-link active';
 
-				this.summaryContentClass = 'tab-pane';
-				this.historyContentClass = 'tab-pane active';
-				this.showHistory = true;
-				// axios
-				// 	.get("/api/"+this.symbol+"/history")
-				// 	.then(({ data }) => {
-				// 		this.HistoricalData = data;		
-				// 		this.showHistory = true;
-				// 		}
-				// 	);
-			},
-            RoundMe(val){
-				return  val.toFixed(2);
-			},
-            Surprise(a,b){
-				return  (((a / b) * 100) - 100).toFixed(2);
-			},
         },
 		created() {
 			console.log(this.Summary);
