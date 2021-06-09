@@ -50,6 +50,11 @@
                                                                     Research/Reports
                                                                 </a>   
                                                             </li>   
+                                                             <li class="dropdown ml-0">
+                                                                <inertia-link class="dropdown-item dropdown-toggle" :href="route('market-earning-activity')">
+                                                                    Market Earning Activity
+                                                                </inertia-link>   
+                                                            </li>   
                                                             <li class="dropdown ml-0">
                                                                 <inertia-link class="dropdown-item dropdown-toggle" href="/contact-customer-service">
                                                                     Contact Us
