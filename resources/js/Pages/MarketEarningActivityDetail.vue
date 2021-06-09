@@ -122,7 +122,10 @@
 				// 	);
 			},
             RoundMe(val){
-				return  val.toFixed(2);
+				if(val != null)
+					return val.toFixed(3)
+				else
+					return '';
 			},
             Surprise(a,b){
 				return  (((a / b) * 100) - 100).toFixed(2);

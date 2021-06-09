@@ -44,7 +44,10 @@ export default {
         );
     },
     RoundMe(val){
-      return val.toFixed(3)
+      if(val != null)
+        return val.toFixed(3)
+      else
+        return '';
     }
   },
   mounted() {},
