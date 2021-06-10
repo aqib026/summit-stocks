@@ -5,7 +5,10 @@
 			<LeftSideBar :symbol="symbol" />
 		</div>
 		<div class="col-md-9">
-			<h2 id="top-heading" class="font-weight-bold text-3 mb-0 mt-4 mt-md-0">{{ Profile.companyName }} ( {{ Profile.symbol }} )</h2>
+			<h2 id="top-heading" class="font-weight-bold text-3 mb-0 mt-4 mt-md-0">
+				{{ Profile.companyName }} ( {{ Profile.symbol }} )
+				<button class="wishlist-btn">Add to Watch List</button>
+			</h2>
 			<p class="mb-4">
 				{{ Profile.exchangeShortName }} : {{ Profile.exchange }} -
 				<small> Real Time Price</small> -
@@ -72,6 +75,9 @@
 <style scoped>
 #top-heading{ font-size: 32px !important;} #topPrice{ font-size: 36px !important;}
 #topGreen{ color: #00873c !important; font-size: 28px !important;}
+.wishlist-btn{ background-color: transparent; border: 2px solid #5bc0de; color: #5bc0de; border-radius: 2em!important; padding: .483rem 1.0625rem;
+font-size: 0.85rem; line-height: 1.42857;}
+.wishlist-btn:hover{ background-color: #5bc0de; border: 2px solid #5bc0de; color: #fff;}
 </style>
 <script>
  	import MainSideBar from '@/Layouts/MainSideBar'
